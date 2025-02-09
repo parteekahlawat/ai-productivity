@@ -54,7 +54,7 @@
 // export default Dashboard;
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, CssBaseline, Card, CardContent, Grid, useMediaQuery } from "@mui/material";
-import { Menu, Home, Dashboard, Settings } from "@mui/icons-material";
+import { Menu, Home, Dashboard} from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import Sidebar from "./sidebar";
 import Navbar from "./Navbar";
@@ -65,9 +65,10 @@ import Calendar from "../calendar/Calendar";
 import Writer from "../writer/Writer";
 import FileUploadGraph from "../graph-maker/GraphMaker";
 import { changeHome } from "../../redux/eventSlice";
+import Settings from "../auth/settings";
 
 const renderComponent = (component, dispatch) => {
-  const websiteFeatures = ["Data Explainer", "Grammar Corrector", "Calendar Event", "Content Writer", "Graph Maker"]
+  const websiteFeatures = ["Data Explainer", "Grammar Corrector", "Calendar Event", "Content Writer", "Graph Maker", "Setting"]
   // const dispatch = useDispatch()
   const handleCardClick = (item) => {
     // alert(`You clicked on the card with item: ${item}`);
@@ -98,6 +99,8 @@ const renderComponent = (component, dispatch) => {
     return <Writer/>;
   } else if (component === "Graph Maker") {
     return <FileUploadGraph/>;
+  } else if (component === "Setting") {
+    return <Settings/>;
   } else {
     return <Typography variant="h4">Page Not Found</Typography>;
   }

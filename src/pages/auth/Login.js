@@ -49,7 +49,7 @@
 // export default Login;
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import { Container, TextField, Button, Typography, Card, CardContent, Grid, Divider } from "@mui/material";
@@ -59,6 +59,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkUserSession = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        navigate("/dashboard");
+      }
+    };
+    checkUserSession();
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();

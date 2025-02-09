@@ -8,6 +8,8 @@ import DataSummarizer from './pages/data summarizer/DataSummarizer';
 import Login from "./pages/auth/Login";
 import Signup from './pages/auth/SignUp';
 import Dashboardd from './pages/dashboard/Dashboard';
+import Settings from './pages/auth/settings';
+// import Settings from './pages/auth/Settings';
 // import HomePage from "./pages/HomePage"; 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
         {/* <Route path="/" element={<DataSummarizer />} /> */}
         <Route path="/dashboard" element={<Dashboardd />} />
+        <Route path="/settings" element={<Settings />} />
           {/* <Route path="/grammar-correction" element={<GrammarCorrectionApp />} />
           <Route path="/audio-recorder" element={<AudioRecorder />} />
           <Route path="/calendar" element={<CalendarPage />} />
