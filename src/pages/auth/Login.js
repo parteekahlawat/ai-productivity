@@ -52,7 +52,7 @@
 import { useState } from "react";
 import supabase from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import { Container, TextField, Button, Typography, Card, CardContent, Grid } from "@mui/material";
+import { Container, TextField, Button, Typography, Card, CardContent, Grid, Divider } from "@mui/material";
 import { Google as GoogleIcon, Lock as LockIcon } from "@mui/icons-material";
 
 const Login = () => {
@@ -85,14 +85,27 @@ const Login = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Card sx={{ mt: 10, p: 4, textAlign: "center", borderRadius: 4, boxShadow: 3 }}>
+    <Container maxWidth="xs">
+      <Card
+        sx={{
+          mt: 10,
+          p: 4,
+          textAlign: "center",
+          borderRadius: 4,
+          boxShadow: 3,
+          bgcolor: "background.paper",
+        }}
+      >
         <CardContent>
-          <Typography variant="h4" gutterBottom>
+          {/* Orato Branding */}
+          <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
+            Orato
+          </Typography>
+          <Typography variant="h5" sx={{ fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
             <LockIcon fontSize="large" color="primary" /> Login
           </Typography>
 
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleLogin} style={{ marginTop: 20 }}>
             <TextField
               fullWidth
               margin="normal"
@@ -102,6 +115,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              sx={{ borderRadius: 2 }}
             />
 
             <TextField
@@ -113,6 +127,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              sx={{ borderRadius: 2 }}
             />
 
             <Button
@@ -120,15 +135,19 @@ const Login = () => {
               variant="contained"
               color="primary"
               fullWidth
-              sx={{ mt: 2, py: 1.5, fontSize: "16px" }}
+              sx={{
+                mt: 2,
+                py: 1.5,
+                fontSize: "16px",
+                borderRadius: 2,
+                textTransform: "none",
+              }}
             >
               Login
             </Button>
           </form>
 
-          <Typography variant="body1" sx={{ mt: 3, mb: 2 }}>
-            OR
-          </Typography>
+          <Divider sx={{ my: 3 }}>OR</Divider>
 
           <Button
             variant="outlined"
@@ -136,9 +155,34 @@ const Login = () => {
             fullWidth
             onClick={handleGoogleLogin}
             startIcon={<GoogleIcon />}
-            sx={{ py: 1.5, fontSize: "16px" }}
+            sx={{
+              py: 1.5,
+              fontSize: "16px",
+              borderRadius: 2,
+              textTransform: "none",
+            }}
           >
             Sign in with Google
+          </Button>
+
+          {/* Sign Up Section */}
+          <Typography variant="body2" sx={{ mt: 3 }}>
+            Don't have an account?
+          </Typography>
+
+          <Button
+            variant="text"
+            color="secondary"
+            fullWidth
+            onClick={() => navigate("/signup")}
+            sx={{
+              mt: 1,
+              fontSize: "14px",
+              textTransform: "none",
+              fontWeight: "bold",
+            }}
+          >
+            Create an Account
           </Button>
         </CardContent>
       </Card>
