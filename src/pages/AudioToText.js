@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../redux/eventSlice";
 import { AppBar, IconButton, Toolbar, Typography, useMediaQuery, useTheme, Box, Button, Card, CardContent, CircularProgress } from "@mui/material";
 import { Menu, Mic, MicOff, CloudUpload } from "@mui/icons-material";
-import backendLink from "../link";
+
 
 const AudioRecorder = () => {
   const [recording, setRecording] = useState(false);
@@ -17,6 +17,7 @@ const AudioRecorder = () => {
   const open = useSelector((state) => state.sidebarState);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const backendLink = process.env.REACT_APP_BACKEND_LINK
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });

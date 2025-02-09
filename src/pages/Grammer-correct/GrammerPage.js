@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Box, Typography, TextField, Button, Card, CardContent, } from "@mui/material";
-import backendLink from "../../link";
+
 function GrammarCorrectionApp() {
   const [inputText, setInputText] = useState("");
   const [correctedText, setCorrectedText] = useState("");
-
+  const backendLink = process.env.REACT_APP_BACKEND_LINK
   const handleGrammarCorrection = async () => {
     try {
       const response = await axios.post(`${backendLink}/correct-grammar`, {

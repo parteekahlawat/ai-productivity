@@ -4,7 +4,7 @@ import { Container, Typography, Button, Table, TableBody, TableCell, TableContai
 import * as XLSX from "xlsx";
 import axios from "axios";
 import html2canvas from "html2canvas";
-import backendLink from "../../link";
+
 
 const FileUploadGraph = () => {
     const [fileData, setFileData] = useState([]);
@@ -16,7 +16,7 @@ const FileUploadGraph = () => {
     const [graphHtml, setGraphHtml] = useState("");
     const iframeRef = useRef(null);
 
-
+    const backendLink = process.env.REACT_APP_BACKEND_LINK
 
     const handleFileUpload = (event) => {
         const file = event.target.files[0];

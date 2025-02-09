@@ -4,7 +4,7 @@ import { Button, Card, CardContent, Typography, CircularProgress, TextField, For
 
 import supabase from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import backendLink from "../../link";
+
 const DataSummarizer = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ const DataSummarizer = () => {
   const [responseData, setResponseData] = useState("");
   const [choice, setChoice] = useState("summary");
   const [query, setQuery] = useState("");
-
+  const backendLink = process.env.REACT_APP_BACKEND_LINK
   const navigate = useNavigate();
 
   const handleLogout = async () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, RadioGroup, FormControlLabel, Radio, Button, TextField, Card, CardContent, FormControl, Box,} from "@mui/material";
 import axios from "axios";
-import backendLink from "../../link";
+
 
 const Writer = () => {
   const [promptType, setPromptType] = useState("email");
@@ -9,7 +9,7 @@ const Writer = () => {
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [response, setResponse] = useState("");
-
+  const backendLink = process.env.REACT_APP_BACKEND_LINK
   const handlePromptChange = (event) => {
     setPromptType(event.target.value);
     setShowCustomInput(event.target.value === "custom");
