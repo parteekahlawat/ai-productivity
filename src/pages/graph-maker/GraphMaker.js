@@ -4,6 +4,7 @@ import { Container, Typography, Button, Table, TableBody, TableCell, TableContai
 import * as XLSX from "xlsx";
 import axios from "axios";
 import html2canvas from "html2canvas";
+import backendLink from "../../link";
 
 const FileUploadGraph = () => {
     const [fileData, setFileData] = useState([]);
@@ -55,7 +56,7 @@ const FileUploadGraph = () => {
                 data: selectedData
             });
 
-            const response = await axios.post("http://localhost:5000/generate-graph", {
+            const response = await axios.post(`${backendLink}/generate-graph`, {
                 xColumn: xColumn,
                 yColumn: yColumn,
                 graphType: graphType,

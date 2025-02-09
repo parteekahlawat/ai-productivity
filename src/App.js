@@ -23,10 +23,10 @@ function App() {
         <Route element={<ProtectedRoute />}>
         {/* <Route path="/" element={<DataSummarizer />} /> */}
         <Route path="/dashboard" element={<Dashboardd />} />
-          <Route path="/grammar-correction" element={<GrammarCorrectionApp />} />
+          {/* <Route path="/grammar-correction" element={<GrammarCorrectionApp />} />
           <Route path="/audio-recorder" element={<AudioRecorder />} />
           <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/data-summarizer" element={<DataSummarizer />} />
+          <Route path="/data-summarizer" element={<DataSummarizer />} /> */}
         </Route>
       </Routes>
     </Router>

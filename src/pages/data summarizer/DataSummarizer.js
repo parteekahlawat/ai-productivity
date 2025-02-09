@@ -4,7 +4,7 @@ import { Button, Card, CardContent, Typography, CircularProgress, TextField, For
 
 import supabase from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
-
+import backendLink from "../../link";
 const DataSummarizer = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -48,7 +48,7 @@ const DataSummarizer = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/data-summarizer", formData, {
+      const response = await axios.post(`${backendLink}/data-summarizer`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResponseData(response.data.content);

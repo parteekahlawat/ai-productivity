@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../redux/eventSlice";
 import { AppBar, IconButton, Toolbar, Typography, useMediaQuery, useTheme, Box, Button, Card, CardContent, CircularProgress } from "@mui/material";
 import { Menu, Mic, MicOff, CloudUpload } from "@mui/icons-material";
+import backendLink from "../link";
 
 const AudioRecorder = () => {
   const [recording, setRecording] = useState(false);
@@ -49,7 +50,7 @@ const AudioRecorder = () => {
 
 
   const addEvent = async (response)=>{
-    const eventDetails = await axios.post("http://localhost:5000/add-event",
+    const eventDetails = await axios.post(`${backendLink}/add-event`,
       { text: response.data.response }, 
       {
         headers: {
@@ -76,7 +77,7 @@ const AudioRecorder = () => {
     formData.append("audio", audioBlob, "audio.wav");
 
     try {
-      const response = await axios.post("http://localhost:5000/process-audio", formData, {
+      const response = await axios.post(`${backendLink}/process-audio`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",  // ✅ Correct Content-Type for FormData
         }

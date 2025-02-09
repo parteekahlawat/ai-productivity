@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, RadioGroup, FormControlLabel, Radio, Button, TextField, Card, CardContent, FormControl, Box,} from "@mui/material";
 import axios from "axios";
+import backendLink from "../../link";
 
 const Writer = () => {
   const [promptType, setPromptType] = useState("email");
@@ -17,7 +18,7 @@ const Writer = () => {
   const handleGenerateContent = async () => {
     const selectedPrompt = showCustomInput ? customPrompt : promptType;
     try {
-      const res = await axios.post("http://localhost:5000/generate-content", {
+      const res = await axios.post(`${backendLink}/generate-content`, {
         promptType: selectedPrompt,
         additional: additionalDetails,
         voiceInput:0,
